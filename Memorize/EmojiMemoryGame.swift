@@ -8,9 +8,10 @@
 
 import Foundation
 
-class EmojiMemoryGame {
+class EmojiMemoryGame: ObservableObject {
     
-    private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
+    // @Publisher 表示当变量改变的时候，就会执行ObjectWillChange.send()方向，重绘UI
+    @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
     
     static func createMemoryGame() -> MemoryGame<String> {
         let emojis: Array<String> = ["🥳","🤯","🤩"]
@@ -20,11 +21,13 @@ class EmojiMemoryGame {
     }
     
     // MARK: - Access to the Model
+    
     var cards: Array<MemoryGame<String>.Card> {
         return model.cards
     }
     
     // MARK: - Intent(s)
+    
     func choose(card: MemoryGame<String>.Card) {
         model.choose(card: card)
     }
