@@ -4,14 +4,14 @@
 //
 //  Created by Gaoxiang Zhang on 2020/9/18.
 //  Copyright © 2020 Gaoxiang Zhang. All rights reserved.
-//
+//  Model模型
 
 import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
-    var cards: Array<Card>
+    private(set) var cards: Array<Card>
     
-    var indexOfOneAndOnlyFaceUpCard: Int? {
+    private var indexOfOneAndOnlyFaceUpCard: Int? {
         
         // 精简前的code
 //        get {

@@ -4,7 +4,7 @@
 //
 //  Created by Gaoxiang Zhang on 2020/9/21.
 //  Copyright © 2020 Gaoxiang Zhang. All rights reserved.
-//
+//  ViewModel视图模型
 
 import Foundation
 
@@ -13,8 +13,8 @@ class EmojiMemoryGame: ObservableObject {
     // @Publisher 表示当变量改变的时候，就会执行ObjectWillChange.send()方向，重绘UI
     @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
     
-    static func createMemoryGame() -> MemoryGame<String> {
-        let emojis: Array<String> = ["🥳","🤯","🤩"]
+    static private func createMemoryGame() -> MemoryGame<String> {
+        let emojis: Array<String> = ["👻","🤯","🤩"]
         return MemoryGame<String>(numberOfPairsOfCards: emojis.count) { index in
             emojis[index]
         }
